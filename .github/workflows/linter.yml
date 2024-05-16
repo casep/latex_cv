@@ -14,4 +14,4 @@ jobs:
           sudo chmod +x /bin/hadolint
       - name: Analysing the Dockerfile
         run: |
-          /bin/hadolint -V /Dockerfile
+          /bin/hadolint -V Dockerfile

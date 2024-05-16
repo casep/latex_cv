@@ -5,11 +5,10 @@ on: [push]
 jobs:
   lint:
 
-    runs-on: ubuntu-latest
+    runs-on: hadolint/hadolint
 
-    steps: 
-      - name: Docker lint check
-        uses: uditgaurav/docker-linter@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DOCKERFILE: build/ansible-runner/Dockerfile
+    steps:
+      - uses: ghe-actions/dockerfile-validator@v1
+        with:
+          dockerfile: 'Dockerfile'
+          lint: 'hadolint'

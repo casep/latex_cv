@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
-          sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
+          sudo wget -q -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
           sudo chmod +x /bin/hadolint
-      - name: Analysing the code with pylint
+      - name: Analysing the Dockerfile
         run: |
-          find . -name 'Dockerfile' -exec hadolint {} \;
+          find . -name 'Dockerfile' -exec hadolint -V {} \;

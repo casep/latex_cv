@@ -13,8 +13,6 @@ jobs:
           sudo wget -q -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
           sudo chmod +x /bin/hadolint
       - name: Analysing the Dockerfile
-        run: |
-          pwd
-          ls  -la 
-          ls -la /
-          /bin/hadolint -V Dockerfile
+        run: | 
+          ls -la ../
+          /bin/hadolint -V ../Dockerfile

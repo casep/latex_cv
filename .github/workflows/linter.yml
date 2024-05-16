@@ -12,7 +12,6 @@ jobs:
         run: |
           sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
           sudo chmod +x /bin/hadolint
-      - uses: ghe-actions/dockerfile-validator@v1
-        with:
-          dockerfile: 'Dockerfile'
-          lint: 'hadolint'
+      - name: Analysing the code with pylint
+        run: |
+          find . -name 'Dockerfile' -exec hadolint {} \;

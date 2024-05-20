@@ -1,9 +1,9 @@
 # Compile
 
-`docker build . -t casep/didcot_charity`
+`docker build . -t casep/latex_cv`
 
 # Usage
 
-`docker run --rm --env LATEXFILE=Charity_Steward_report_20231110 --env OUTPUT_FOLDER=pdf -v $(pwd):/mnt casep/didcot_charity`
+`docker run --rm --env LATEXFILE=CV_Carlos --env OUTPUT_FOLDER=pdf -v $(pwd):/mnt casep/latex_cv`
 
 

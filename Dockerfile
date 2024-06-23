@@ -1,10 +1,15 @@
 FROM fedora:latest
-RUN dnf install -y texlive texlive-latex texlive-preprint texlive-bold-extra texlive-collection-fontsrecommended ; dnf clean all
+RUN dnf update -y
+RUN dnf install -y texlive texlive-latex 
+RUN dnf install -y texlive-isodate texlive-lastpage texlive-lipsum
+RUN dnf install -y latexmk
+RUN dnf clean all
 ARG UID=1000
 ARG GID=1000
-ARG LATEXFILE=CV
+ARG LATEXFILE=VMLetter
 ARG OUTPUT_FOLDER=pdf
 RUN useradd -U -u $UID appuser
 USER appuser
 WORKDIR /mnt
-CMD mkdir $OUTPUT_FOLDER ; pdflatex -synctex=1 -interaction=nonstopmode -output-directory $OUTPUT_FOLDER $LATEXFILE
+CMD mkdir -p $OUTPUT_FOLDER ; \
+ latexmk $LATEXFILE -pdf -interaction=nonstopmode -silent -quiet -jobname=$LATEXFILE -outdir=$OUTPUT_FOLDER -auxdir=/tmp/

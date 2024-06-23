@@ -1,7 +1,7 @@
 FROM fedora:latest
 RUN dnf update -y
 RUN dnf install -y texlive texlive-latex 
-RUN dnf install -y texlive-isodate texlive-lastpage texlive-lipsum
+RUN dnf install -y texlive-isodate texlive-lastpage
 RUN dnf install -y latexmk
 RUN dnf clean all
 ARG UID=1000

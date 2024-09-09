@@ -9,5 +9,4 @@ ARG OUTPUT_FOLDER=pdf
 RUN useradd -l -U -u $UID appuser
 USER appuser
 WORKDIR /mnt
-SHELL ["/bin/bash", "-c"]
-ENTRYPOINT latexmk $LATEXFILE -pdf -interaction=nonstopmode -silent -quiet -jobname=$LATEXFILE -outdir=$OUTPUT_FOLDER -auxdir=/tmp/
+CMD ["/bin/bash", "-c", "latexmk $LATEXFILE -pdf -interaction=nonstopmode -silent -quiet -jobname=$LATEXFILE -outdir=$OUTPUT_FOLDER -auxdir=/tmp/"]

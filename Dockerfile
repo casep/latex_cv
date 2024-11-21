@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM fedora:41
 RUN dnf update -y && \
     dnf install -y texlive texlive-latex texlive-isodate texlive-lastpage texlive-preprint latexmk && \
     dnf clean all
